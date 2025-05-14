@@ -12,7 +12,7 @@ M.get_sops_env_vars = function()
   local pgpFingerprints = vim.g.nvim_sops_defaults_pgp_fingerprints
 
   if backend == "vault" then
-    sopsGeneralEnvVars.VAULT_TOKEN = vim.fn.system('vault token lookup | grep "^id " | grep -o "[^ ]*$')
+    sopsGeneralEnvVars.VAULT_TOKEN = vim.fn.system('vault token lookup | grep "^id " | grep -o "[^ ]*$"')
   end
 
   if backend == "aws" then
