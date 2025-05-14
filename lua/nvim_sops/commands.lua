@@ -51,7 +51,7 @@ M.file_encrypt = function()
   local command = envs .. binary .. table.concat(args, ' ') .. ' ' .. input_file
   debug(command)
 
-  vim.fn.system(command)
+  debug(vim.fn.system(command))
   if vim.v.shell_error ~= 0 then
     print('Error encrypting file: ' .. input_file)
   end
@@ -79,7 +79,7 @@ M.file_decrypt = function()
   local command = envs .. binary .. table.concat(args, ' ') .. ' ' .. input_file
   debug(command)
 
-  vim.fn.system(command)
+  debug(vim.fn.system(command))
   if vim.v.shell_error ~= 0 then
     print('Error decrypting file: ' .. input_file)
   end
