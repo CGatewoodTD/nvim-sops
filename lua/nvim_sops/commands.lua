@@ -37,10 +37,10 @@ M.file_encrypt = function()
   -- end
   --
   local binary = vim.g.nvim_sops_bin_path .. ' '
-  local sops_options = sops.get_sops_general_options()
+  local sops_env = sops.get_sops_env_vars()
 
   local envs = ""
-  for key, value in pairs(sops_options.sopsGeneralEnvVars) do
+  for key, value in pairs(sops_env) do
     envs = envs .. key .. '=' .. value .. ' '
   end
   local args = {
@@ -65,10 +65,10 @@ M.file_decrypt = function()
   local input_file = vim.fn.expand('%:p')
   debug('decrypting', input_file)
   local binary = vim.g.nvim_sops_bin_path .. ' '
-  local sops_options = sops.get_sops_general_options()
+  local sops_env = sops.get_sops_env_vars()
 
   local envs = ""
-  for key, value in pairs(sops_options.sopsGeneralEnvVars) do
+  for key, value in pairs(sops_env) do
     envs = envs .. key .. '=' .. value .. ' '
   end
   local args = {
